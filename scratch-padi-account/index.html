@@ -1,16 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My Webpage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .nav-bar {
+        background-color: white;
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .nav-bar ul {
+        list-style-type: none;
+        overflow: hidden;
+      }
+
+      .nav-bar li {
+        float: right;
+      }
+
+      .nav-bar img {
+        float: left;
+        width: 10%;
+        height: auto; /* Adjust the height as needed */
+        margin-right: 20px; /* Adjust the margin as needed */
+      }
+
+      .nav-bar a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        .nav-bar a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+        .nav-bar img {
+          float: none;
+          display: block;
+          margin: auto;
+          margin-bottom: 10px;
+        }
+      }
+
+      .login-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+        width: 100%;
+        max-height: 397px;
+        height: 100%;
+        padding: 20px;
+        margin: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 100vh;
+      }
+
+      .login-container h4 {
+        margin-bottom: 10px;
+      }
+
+      .login-container div {
+        width: 100%;
+        background-color: #f2f2f2;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <div>
-        <img src="./assets/padi-logo 11.04.23 PM.png" alt="" class="body" />
-      </div>
-      <div></div>
+    <div class="nav-bar">
+      <img src="./assets/padi-logo 11.04.23 PM.png" alt="Logo" />
+      <ul>
+        <li>
+          <a href="" style="color: #0070d3; font-weight: bold">Sign In</a>
+        </li>
+        <li><a href="">Create an account</a></li>
+      </ul>
     </div>
-    <h1 class="body h1">Welcome to My Webpage</h1>
+    <div class="login-container">
+      <h4 style="width: 100%">Sign In.</h4>
+      <div>Don't have an account? Create an account</div>
+      <input type="text" placeholder="Email" />
+    </div>
   </body>
 </html>
