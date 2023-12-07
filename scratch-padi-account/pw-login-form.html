@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="nav-bar">
-      <img src="./assets/padi-logo 11.04.23 PM.png" alt="Logo" />
+      <img src="./assets/padi-logo.png" alt="Logo" />
       <ul>
         <li>
           <a href="" class="link-text link-text-color">Sign In</a>
@@ -21,11 +21,22 @@
     <div class="main-container">
       <div class="login-container">
         <h2>Welcome back.</h2>
-        <p>Email: <span id="displayEmail"></span></p>
+        <span id="displayEmail" class="margin-10"></span>
         <div>
-          <input type="password" placeholder="Password" />
-          <input type="button" value="Sign In" />
-          <a href="" class="link-text-color">Forgot your password?</a>
+          <input type="password" placeholder="Password" class="margin-10" />
+          <span class="pw-note">Password is case sensititve </span>
+          <input type="button" value="Sign In" class="margin-10" />
+          <a href="" class="link-text-color margin-10">Forgot your password?</a>
+        </div>
+        <div>
+          <a href="#" class="form-back-button" onclick="redirectBack()">
+            <p>
+              <span class="login__back-icon">
+                <img src="./assets/login-back-icon.png" alt="" />
+              </span>
+              Go back
+            </p>
+          </a>
         </div>
       </div>
     </div>

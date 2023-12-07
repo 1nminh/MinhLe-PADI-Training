@@ -73,10 +73,6 @@ body {
   margin: 0;
 }
 
-.login-container div {
-  margin: 10px 0px;
-}
-
 .login-container input[type="text"],
 .login-container input[type="button"],
 .login-container input[type="password"] {
@@ -115,4 +111,24 @@ body {
 
 .warning-text {
   color: red;
+}
+
+.margin-10 {
+  display: inline-block;
+  margin: 10px 0px;
+}
+
+.pw-note {
+  color: #757575;
+  font-size: 12px;
+}
+
+.form-back-button {
+  text-decoration: none;
+  color: black !important;
+}
+
+.login__back-icon {
+  vertical-align: middle;
+  width: 40px;
 }

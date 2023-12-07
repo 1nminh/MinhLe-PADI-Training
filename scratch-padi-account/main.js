@@ -6,13 +6,19 @@ function isValidEmail(email) {
 function redirectToNextPage() {
   var emailValue = document.getElementById("emailInput").value.trim();
   var displayWarningEmail = document.getElementById("displayWarningEmail");
+  var emailInput = document.getElementById("emailInput");
 
   if (emailValue !== "" && isValidEmail(emailValue)) {
     var url = "pw-login-form.html?email=" + encodeURIComponent(emailValue);
     window.location.href = url;
   } else {
     displayWarningEmail.style.display = "block";
+    emailInput.style.border = "red 1px solid";
   }
+}
+
+function redirectBack() {
+  window.history.back();
 }
 
 // document.addEventListener("DOMContentLoaded", function () {
