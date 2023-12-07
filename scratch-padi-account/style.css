@@ -25,9 +25,9 @@ body {
   margin-right: 20px; /* Adjust the margin as needed */
 }
 
-.nav-bar a {
-  display: block;
+.nav-bar .link-text {
   color: black;
+  display: block;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -69,12 +69,6 @@ body {
   padding: 0px 60px;
 }
 
-.login-container a {
-  text-decoration: none;
-  color: #0070d3;
-  font-weight: bold;
-}
-
 .login-container h2 {
   margin: 0;
 }
@@ -84,11 +78,13 @@ body {
 }
 
 .login-container input[type="text"],
-.login-container input[type="button"] {
+.login-container input[type="button"],
+.login-container input[type="password"] {
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.login-container input[type="text"] {
+.login-container input[type="text"],
+.login-container input[type="password"] {
   width: 100%;
   height: 50px;
   border: 1px solid rgb(184, 184, 184);
@@ -105,4 +101,18 @@ body {
   border: 0;
   border-radius: 4px;
   /* Add other styling properties as needed */
+}
+
+.link-text-color {
+  text-decoration: none;
+  color: #0070d3 !important;
+  font-weight: bold;
+}
+
+.init-hide-content {
+  display: none;
+}
+
+.warning-text {
+  color: red;
 }

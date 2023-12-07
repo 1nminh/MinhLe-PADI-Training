@@ -1,24 +1,28 @@
-// import "./style.css";
-// import javascriptLogo from "./javascript.svg";
-// import viteLogo from "/vite.svg";
-// import { setupCounter } from "./counter.js";
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
 
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <a href="https://vitejs.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
+function redirectToNextPage() {
+  var emailValue = document.getElementById("emailInput").value.trim();
+  var displayWarningEmail = document.getElementById("displayWarningEmail");
 
-// setupCounter(document.querySelector("#counter"));
+  if (emailValue !== "" && isValidEmail(emailValue)) {
+    var url = "pw-login-form.html?email=" + encodeURIComponent(emailValue);
+    window.location.href = url;
+  } else {
+    displayWarningEmail.style.display = "block";
+  }
+}
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   var displayWarningEmail = document.getElementById("displayWarningEmail");
+//   displayWarningEmail.style.display = "none";
+// });
+
+var params = new URLSearchParams(window.location.search);
+var emailValue = params.get("email");
+
+if (emailValue) {
+  document.getElementById("displayEmail").textContent = emailValue;
+}
