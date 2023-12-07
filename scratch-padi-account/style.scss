@@ -71,32 +71,32 @@ body {
   h2 {
     margin: 0;
   }
-}
 
-.login-container input[type="text"],
-.login-container input[type="button"],
-.login-container input[type="password"] {
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+  input[type="text"],
+  input[type="button"],
+  input[type="password"] {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  width: 100%;
-  height: 50px;
-  border: 1px solid rgb(184, 184, 184);
-  font-size: 16px;
-  border-radius: 4px;
-  padding: 0px 20px;
-}
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(184, 184, 184);
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0px 20px;
+  }
 
-.login-container input[type="button"] {
-  color: #fff;
-  width: 100%;
-  height: 50px;
-  background: rgb(0, 112, 211);
-  border: 0;
-  border-radius: 4px;
-  /* Add other styling properties as needed */
+  input[type="button"] {
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    background: rgb(0, 112, 211);
+    border: 0;
+    border-radius: 4px;
+    /* Add other styling properties as needed */
+  }
 }
 
 .link-text-color {
