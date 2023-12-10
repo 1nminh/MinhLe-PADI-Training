@@ -27,7 +27,41 @@ document.getElementById("submitButton").addEventListener("click", function () {
 
 //Hoisting
 console.log(x);
-var x = 5;
+var x = "2" + "2" - "2";
+console.log(typeof x);
+console.log(x);
 
+const z = {
+  firstName: "John",
+  lastName: "Doe",
+};
+console.log(typeof z);
+
+myFunction();
+console.log(carName);
+function myFunction() {
+  carName = "Volvo";
+}
+
+const obj1 = { value: 42 };
+const obj2 = { value: 84 };
+
+function getValue(value) {
+  console.log(value.value);
+}
+
+getValue(obj1);
+getValue(obj2);
+
+let obj = { name: "John" };
+function greet(greeting, punctuation) {
+  console.log(greeting + ", " + this.name + punctuation);
+}
+greet.call(obj, "Hello", "!"); // Outputs: "Hello, John!"
+greet.apply(obj, ["Hello", "!"]); // Outputs: "Hello, John!"
+let boundGreet = greet.bind(obj);
+boundGreet("Hello", "!"); // Outputs: "Hello, John!"
+
+console.log(document.title);
 console.log(y);
 let y = 10;
