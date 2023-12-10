@@ -105,6 +105,11 @@ body {
     border-radius: 4px;
     /* Add other styling properties as needed */
   }
+
+  &__back-icon {
+    vertical-align: middle;
+    width: 40px;
+  }
 }
 
 .link-text-color {
@@ -134,11 +139,6 @@ body {
 .form-back-button {
   text-decoration: none;
   color: black !important;
-}
-
-.login__back-icon {
-  vertical-align: middle;
-  width: 40px;
 }
 
 .dark-mode {
