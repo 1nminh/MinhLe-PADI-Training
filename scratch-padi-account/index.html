@@ -8,16 +8,26 @@
   </head>
   <body>
     <div class="nav-bar">
-      <img src="./assets/padi-logo.png" alt="Logo" />
-      <ul>
-        <li>
-          <a href="" class="link-text link-text-color">Sign In</a>
+      <img
+        src="./assets/padi-logo.png"
+        alt="Logo"
+        class="md-logo-img nav-bar__img"
+      />
+      <ul class="nav-bar__ul">
+        <li class="nav-bar__li">
+          <a href="" class="nav-bar__link-text link-text-color md-anchor"
+            >Sign In</a
+          >
         </li>
-        <li>
-          <a href="" class="link-text">Create an account</a>
+        <li class="nav-bar__li">
+          <a href="" class="nav-bar__link-text md-anchor">Create an account</a>
         </li>
-        <li>
-          <button id="darkModeToggle" onclick="toggleDarkMode()">
+        <li class="nav-bar__li">
+          <button
+            id="darkModeToggle"
+            onclick="toggleDarkMode()"
+            class="nav-bar__button"
+          >
             Toggle Dark Mode
           </button>
         </li>
@@ -25,7 +35,7 @@
     </div>
     <div class="main-container">
       <div class="login-container" id="loginContainer">
-        <h2>Sign In.</h2>
+        <h2 class="login-container__heading-2">Sign In.</h2>
         <div class="margin-10">
           <span>Don't have an account?</span>
           <a href="" class="link-text-color">Create an account</a>
@@ -35,7 +45,7 @@
             type="text"
             id="emailInput"
             placeholder="Email"
-            class="margin-10"
+            class="login-container__input-text margin-10"
           />
           <p id="displayWarningEmail" class="init-hide-content warning-text">
             Please enter a valid email
@@ -44,7 +54,7 @@
             type="button"
             value="Next"
             onclick="redirectToNextPage()"
-            class="margin-10"
+            class="login-container__input-button margin-10"
           />
           <a href="" class="link-text-color margin-10">Forgot your password?</a>
         </div>

@@ -8,24 +8,47 @@
   </head>
   <body>
     <div class="nav-bar">
-      <img src="./assets/padi-logo.png" alt="Logo" />
-      <ul>
-        <li>
-          <a href="" class="link-text link-text-color">Sign In</a>
+      <img
+        src="./assets/padi-logo.png"
+        alt="Logo"
+        class="md-logo-img nav-bar__img"
+      />
+      <ul class="nav-bar__ul">
+        <li class="nav-bar__li">
+          <a href="" class="nav-bar__link-text link-text-color md-anchor"
+            >Sign In</a
+          >
         </li>
-        <li>
-          <a href="" class="link-text">Create an account</a>
+        <li class="nav-bar__li">
+          <a href="" class="nav-bar__link-text md-anchor">Create an account</a>
+        </li>
+        <li class="nav-bar__li">
+          <button
+            id="darkModeToggle"
+            onclick="toggleDarkMode()"
+            class="nav-bar__button"
+          >
+            Toggle Dark Mode
+          </button>
         </li>
       </ul>
     </div>
     <div class="main-container">
-      <div class="login-container">
+      <div class="login-container" id="loginContainer">
         <h2>Welcome back.</h2>
         <span id="displayEmail" class="margin-10"></span>
         <div>
-          <input type="password" placeholder="Password" class="margin-10" />
+          <input
+            type="password"
+            placeholder="Password"
+            class="login-container__input-password margin-10"
+          />
           <span class="pw-note">Password is case sensititve </span>
-          <input type="button" value="Sign In" class="margin-10" />
+          <input
+            type="button"
+            value="Sign In"
+            class="login-container__input-button margin-10"
+          />
           <a href="" class="link-text-color margin-10">Forgot your password?</a>
         </div>
         <div>
