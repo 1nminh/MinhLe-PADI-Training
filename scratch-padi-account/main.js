@@ -32,3 +32,8 @@ var emailValue = params.get("email");
 if (emailValue) {
   document.getElementById("displayEmail").textContent = emailValue;
 }
+
+function toggleDarkMode() {
+  var loginContainer = document.getElementById("loginContainer");
+  loginContainer.classList.toggle("dark-mode");
+}
