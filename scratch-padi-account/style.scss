@@ -47,16 +47,15 @@ body {
   .nav-bar {
     flex-direction: column;
     align-items: center;
-  }
+    &__ul {
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .nav-bar__ul {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-bar__li {
-    float: none;
-    margin-left: 0;
+    &__li {
+      float: none;
+      margin-left: 0;
+    }
   }
 }
 
