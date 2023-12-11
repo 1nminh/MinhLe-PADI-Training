@@ -46,8 +46,8 @@ function myFunction() {
 const obj1 = { value: 42 };
 const obj2 = { value: 84 };
 
-function getValue(value) {
-  console.log(value.value);
+function getValue(obj) {
+  console.log(obj.value);
 }
 
 getValue(obj1);
