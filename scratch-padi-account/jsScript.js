@@ -63,5 +63,24 @@ let boundGreet = greet.bind(obj);
 boundGreet("Hello", "!"); // Outputs: "Hello, John!"
 
 console.log(document.title);
-console.log(y);
-let y = 10;
+
+// console.log(y);
+// let y = 10;
+
+var fruits = ["apple", "banana", "orange"];
+// fruits.shift();
+fruits.unshift("kiwi");
+fruits.splice(0, 1);
+console.log(fruits);
+console.log(fruits.join(" "));
+
+let moreFruits = ["banana", "orange1"];
+let allFruits = fruits.concat(moreFruits); // Concatenate two arrays
+console.log(allFruits);
+
+// let numbers = new Array(1, 2, 3, 4, 5);
+
+// let emptyArray = [];
+
+// console.log(fruits[0]); // Output: 'apple'
+// console.log(numbers[2]); // Output: 3
