@@ -46,12 +46,12 @@ function myFunction() {
 const obj1 = { value: 42 };
 const obj2 = { value: 84 };
 
-function getValue(obj) {
-  console.log(obj.value);
+function getValue() {
+  console.log(this.value);
 }
 
-getValue(obj1);
-getValue(obj2);
+getValue.call(obj1);
+getValue.call(obj2);
 
 let obj = { name: "John" };
 function greet(greeting, punctuation) {
