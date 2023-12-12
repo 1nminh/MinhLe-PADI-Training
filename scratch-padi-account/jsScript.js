@@ -84,3 +84,78 @@ console.log(allFruits);
 
 // console.log(fruits[0]); // Output: 'apple'
 // console.log(numbers[2]); // Output: 3
+
+// window.location.hostname = "a";
+
+console.log(window.location.pathname);
+
+function nam1e() {
+  let xxx = "s";
+  if (Math.random() > 0.5) {
+    console.log(xxx);
+    let xx = 1;
+  } else {
+    console.log(xxx);
+    let xx = 2;
+  }
+}
+
+const add = (function () {
+  let counter = 0;
+  return function () {
+    counter += 1;
+    return counter;
+  };
+})();
+
+add();
+add();
+add();
+
+// let fruitss = ["apple", "banana", "orange"];
+
+// for (let index in fruitss) {
+//   console.log(index); // Output: '0', '1', '2' (indices as strings)
+//   console.log(fruitss[index]); // Output: 'apple', 'banana', 'orange'
+// }
+
+// let person = {
+//   name: "John",
+//   age: 30,
+//   job: "developer",
+// };
+
+// for (let key in person) {
+//   console.log(key, person[key]); // Output: 'name John', 'age 30', 'job developer'
+// }
+
+let mySet = new Set([1, 2, 3]);
+
+for (let value of mySet) {
+  console.log(value); // Output: 1, 2, 3
+}
+
+const rappers = {
+  eminem: "1972",
+  tupac: "1971",
+};
+for (let ii in rappers) {
+  console.log(rappers[ii]); // Uncaught TypeError: rappers is not iterable
+}
+
+const array1 = [1, 30, 4, 21, 100000];
+
+console.log(...array1);
+console.log(Math.max(...array1));
+// array1.sort();
+// array1.reverse();
+console.log("---");
+array1.sort(function (a, b) {
+  return a - b;
+});
+console.log(array1);
+
+console.log(encodeURIComponent("aa aaa :) s ' / ["));
+
+let elementsByClass = document.getElementsByTagName("div");
+console.log(elementsByClass);
