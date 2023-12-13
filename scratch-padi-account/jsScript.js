@@ -147,8 +147,8 @@ const array1 = [1, 30, 4, 21, 100000];
 
 console.log(...array1);
 console.log(Math.max(...array1));
-// array1.sort();
-// array1.reverse();
+array1.sort();
+array1.reverse();
 console.log("---");
 array1.sort(function (a, b) {
   return a - b;
@@ -159,3 +159,54 @@ console.log(encodeURIComponent("aa aaa :) s ' / ["));
 
 let elementsByClass = document.getElementsByTagName("div");
 console.log(elementsByClass);
+
+let newParagraph = document.createElement("p");
+newParagraph.textContent = "This is a new paragraph.";
+
+// document.body.appendChild(newParagraph);
+
+// let elementToRemove = document.getElementById("elementToRemove");
+// document.body.parentNode.removeChild(elementToRemove);
+
+let test1 = {
+  name: "abc",
+};
+let test2 = { ...test1 };
+
+console.log("---");
+array1.sort(function (a, b) {
+  return a - b;
+});
+console.log(array1);
+
+let html = " a  <h1  > abc <h2  > abc </h2> </h1>  a";
+console.log(document.getElementById("demo").innerHTML);
+// let html = document.getElementById("myP").innerHTML;
+// document.getElementById("demo").innerText = html;
+
+function counter(value) {
+  let count = value;
+  function increase() {
+    return (count += 1);
+  }
+
+  function getValue() {
+    console.log(count);
+    return count;
+  }
+
+  return {
+    increase,
+    getValue,
+  };
+}
+
+const counter1 = counter(1);
+counter1.increase();
+counter1.getValue();
+
+const counter2 = counter(10);
+counter2.increase();
+counter2.increase();
+counter2.increase();
+counter2.getValue();

@@ -18,7 +18,8 @@ function redirectToNextPage() {
 }
 
 function redirectBack() {
-  window.history.back();
+  // window.history.back();
+  function name() {}
 }
 
 // document.addEventListener("DOMContentLoaded", function () {
