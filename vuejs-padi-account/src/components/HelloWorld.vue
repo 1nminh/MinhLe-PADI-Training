@@ -1,18 +1,120 @@
-<script setup>
-import { ref } from 'vue'
+<script>
+import { nextTick } from "vue";
+import debounce from "lodash-es";
 
-defineProps({
-  msg: String,
-})
+export default {
+  props: {
+    msg: String,
+    testProps: String,
+  },
 
-const count = ref(0)
+  data() {
+    return {
+      count: 0,
+      dynamicId: "test v-bind",
+      isButtonDisabled: false,
+      objectOfAttrs: {
+        id: "container",
+        class: "wrapper",
+      },
+      date: "12-1-2022",
+      seen: 1,
+      attributeNames: ["href", "target", "style"],
+      url: "https://example.com",
+      someObject: {},
+      author: {
+        name: "John Doe",
+        books: [
+          "Vue 2 - Advanced Guide",
+          "Vue 3 - Basic Guide",
+          "Vue 4 - The Mystery",
+        ],
+      },
+    };
+  },
+  computed: {
+    // a computed getter
+    publishedBooksMessage() {
+      // `this` points to the component instance
+      return this.author.books.length > 0 ? "Yes" : "No";
+    },
+  },
+
+  methods: {
+    async increment() {
+      this.count++;
+
+      await nextTick();
+    },
+    clickDebounce() {
+      this.count--;
+    },
+  },
+  created() {
+    this.debouncedClick = debounce.debounce(this.clickDebounce, 50000);
+  },
+  unmounted() {
+    // also a good idea to cancel the timer
+    // when the component is removed
+    this.debouncedClick.cancel();
+  },
+  mounted() {
+    console.log(`The initial count is ${this.count}.`);
+    this.count = 2;
+
+    const newObject = {};
+    this.someObject = newObject;
+
+    console.log(newObject === this.someObject);
+  },
+};
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
+  <p>Using text interpolation: <span v-html="testProps"></span></p>
+
+  <div v-bind:id="dynamicId">bb</div>
+  <div :id="dynamicId" :class="dynamicId">aa</div>
+
+  <button :disabled="isButtonDisabled">Button</button>
+
+  <div v-bind="objectOfAttrs">v bind object attributes</div>
+
+  <!-- <div>
+    {{ number + 1 }}
+
+    {{ ok ? "YES" : "NO" }}
+
+    {{ message.split("").reverse().join("") }}
+
+    <div :id="`list-${id}`"></div>
+  </div> -->
+
+  <!-- <time :title="toTitleDate(date)" :datetime="date">
+    {{ formatDate(date) }}
+  </time> -->
+
+  <p v-if="seen">Now you see me</p>
+
+  <a @click="clickDebounce"> click to minus </a>
+
+  <a v-for="attribute in attributeNames" :key="attribute" :[attribute]="url"
+    >{{ attribute }}
+  </a>
+
+  <p>---</p>
+  <p>Computed Properties</p>
+
+  <p>Has published books:</p>
+  <span>{{ author.books.length > 0 ? "Yes" : "No" }}</span>
+
+  <p>Has published books:</p>
+  <span>{{ publishedBooksMessage }}</span>
+
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="increment">count is {{ count }}</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

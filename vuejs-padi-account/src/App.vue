@@ -1,5 +1,17 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import HelloWorld from "./components/HelloWorld.vue";
+
+export default {
+  components: {
+    HelloWorld,
+  },
+  data() {
+    return {
+      msg: "Vite + Vue",
+      testProps: '<span style="color: red">This should be red.</span>',
+    };
+  },
+};
 </script>
 
 <template>
@@ -11,7 +23,10 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld
+    :msg="msg"
+    testProps='<span style="color: red">This should be red.</span>'
+  />
 </template>
 
 <style scoped>
