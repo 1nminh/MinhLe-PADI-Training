@@ -1,12 +1,12 @@
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import Experimental from "./components/Experimental.vue";
+import Experimental0 from "@/components/Experimental0.vue";
+import Experimental1 from "@/components/Experimental1.vue";
 import Navbar from "@/components/Navbar.vue";
 
 export default {
   components: {
-    HelloWorld,
-    Experimental,
+    Experimental0,
+    Experimental1,
     Navbar,
   },
   data() {
@@ -27,11 +27,11 @@ export default {
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div> -->
-  <!-- <HelloWorld
+  <!-- <Experimental0
     :msg="msg"
     testProps='<span style="color: red">This should be red.</span>'
   /> -->
-  <Experimental />
+  <Experimental1 />
 </template>
 
 <style scoped>
