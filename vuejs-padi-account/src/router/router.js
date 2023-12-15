@@ -5,7 +5,6 @@ import About from "@/views/About.vue";
 const routes = [
   { path: "/", component: Home },
   { path: "/about", component: About },
-  // Add more routes as needed
 ];
 
 const router = createRouter({
