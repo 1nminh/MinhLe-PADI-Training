@@ -38,20 +38,25 @@ export default {
       // `this` points to the component instance
       return this.author.books.length > 0 ? "Yes" : "No";
     },
+    increment() {
+      console.log(typeof count);
+      this.count += count;
+      console.log(count);
+    },
   },
 
   methods: {
-    async increment() {
-      this.count++;
+    // async increment() {
+    //   this.count++;
 
-      await nextTick();
-    },
+    //   await nextTick();
+    // },
     clickDebounce() {
       this.count--;
     },
   },
   created() {
-    this.debouncedClick = debounce.debounce(this.clickDebounce, 50000);
+    this.debouncedClick = debounce.debounce(this.clickDebounce, 500);
   },
   unmounted() {
     // also a good idea to cancel the timer

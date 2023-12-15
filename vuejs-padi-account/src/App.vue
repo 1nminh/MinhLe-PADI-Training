@@ -1,9 +1,13 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import Experimental from "./components/Experimental.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   components: {
     HelloWorld,
+    Experimental,
+    Navbar,
   },
   data() {
     return {
@@ -15,18 +19,19 @@ export default {
 </script>
 
 <template>
-  <div>
+  <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
-  </div>
-  <HelloWorld
+  </div> -->
+  <!-- <HelloWorld
     :msg="msg"
     testProps='<span style="color: red">This should be red.</span>'
-  />
+  /> -->
+  <Experimental />
 </template>
 
 <style scoped>
