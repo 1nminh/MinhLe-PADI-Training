@@ -183,7 +183,7 @@ let html = " a  <h1  > abc <h2  > abc </h2> </h1>  a";
 console.log(document.getElementById("demo").innerHTML);
 // let html = document.getElementById("myP").innerHTML;
 // document.getElementById("demo").innerText = html;
-
+console.log("----");
 function counter(value) {
   let count = value;
   function increase() {
@@ -210,3 +210,28 @@ counter2.increase();
 counter2.increase();
 counter2.increase();
 counter2.getValue();
+
+//Closer test
+
+function walk() {
+  var dist = "1780 feet";
+  function fly() {
+    console.log("At " + dist);
+  }
+  return fly;
+}
+var flyFunc = walk();
+flyFunc(); // logs "At 1780 feet"
+
+//-----------
+
+function outside(num) {
+  var rememberedVar = num;
+  return function inside() {
+    console.log(rememberedVar);
+  };
+}
+var remember1 = outside(7);
+var remember2 = outside(9);
+remember1(); // logs 7
+remember2(); // logs 9
