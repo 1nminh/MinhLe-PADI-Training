@@ -64,6 +64,7 @@ export default {
     this.debouncedClick.cancel();
   },
   mounted() {
+    console.log("Exp0 component");
     console.log(`The initial count is ${this.count}.`);
     this.count = 2;
 

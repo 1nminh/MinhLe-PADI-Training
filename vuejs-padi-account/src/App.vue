@@ -1,12 +1,14 @@
 <script>
 import Experimental0 from "@/components/Experimental0.vue";
 import Experimental1 from "@/components/Experimental1.vue";
+import Experimental2 from "@/components/Experimental2.vue";
 import Navbar from "@/components/Navbar.vue";
 
 export default {
   components: {
     Experimental0,
     Experimental1,
+    Experimental2,
     Navbar,
   },
   data() {
@@ -19,6 +21,8 @@ export default {
 </script>
 
 <template>
+  <!-- <Experimental1 /> -->
+  <Experimental2 />
   <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -31,7 +35,6 @@ export default {
     :msg="msg"
     testProps='<span style="color: red">This should be red.</span>'
   /> -->
-  <Experimental1 />
 </template>
 
 <style scoped>
