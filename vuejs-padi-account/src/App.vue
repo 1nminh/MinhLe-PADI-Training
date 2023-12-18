@@ -21,8 +21,12 @@ export default {
 </script>
 
 <template>
-  <!-- <Experimental1 /> -->
-  <Experimental2 />
+  <!-- <Experimental0
+    :msg="msg"
+    testProps='<span style="color: red">This should be red.</span>'
+  /> -->
+  <Experimental1 />
+  <!-- <Experimental2 /> -->
   <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -31,10 +35,6 @@ export default {
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div> -->
-  <!-- <Experimental0
-    :msg="msg"
-    testProps='<span style="color: red">This should be red.</span>'
-  /> -->
 </template>
 
 <style scoped>

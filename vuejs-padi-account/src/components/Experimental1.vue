@@ -102,7 +102,7 @@ export default {
 
   <h1 v-show="isShow">Hello!</h1>
 
-  <li v-for="item in items" :key="item.id">
+  <li v-if="awesome" v-for="item in items" :key="item.id">
     {{ item.message }}
   </li>
   <li v-for="(item, index) in items">

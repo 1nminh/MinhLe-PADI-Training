@@ -28,6 +28,7 @@ body {
     color: black;
     padding: 14px 16px;
     text-decoration: none;
+    display: none;
   }
 
   &__img {
@@ -57,6 +58,14 @@ body {
 
     &__li {
       margin-left: 0;
+    }
+
+    &__li {
+      margin-left: 0;
+    }
+
+    &__button {
+      display: flex;
     }
   }
 }

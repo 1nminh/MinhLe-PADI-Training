@@ -36,21 +36,22 @@ export default {
     // a computed getter
     publishedBooksMessage() {
       // `this` points to the component instance
-      return this.author.books.length > 0 ? "Yes" : "No";
+      // return this.author.books.length > 0 ? "Yes" : "No";
+      return this.count > 5 ? "Yes" : "No";
     },
-    increment() {
-      console.log(typeof count);
-      this.count += count;
-      console.log(count);
-    },
+    // increment() {
+    //   console.log(typeof count);
+    //   this.count += count;
+    //   console.log(count);
+    // },
   },
 
   methods: {
-    // async increment() {
-    //   this.count++;
+    async increment() {
+      this.count++;
 
-    //   await nextTick();
-    // },
+      await nextTick();
+    },
     clickDebounce() {
       this.count--;
     },
