@@ -1,14 +1,14 @@
 <script>
-export default {};
+export default {
+  name: "Navbar",
+};
 </script>
 
 <template>
   <div class="nav-bar">
-    <img
-      src="@/assets/padi-logo.png"
-      alt="Logo"
-      class="md-logo-img nav-bar__img"
-    />
+    <router-link to="/">
+      <img src="@/assets/padi-logo.png" alt="Logo" class="nav-bar__img" />
+    </router-link>
     <ul class="nav-bar__ul">
       <li class="nav-bar__li">
         <button
@@ -20,12 +20,12 @@ export default {};
         </button>
       </li>
       <li class="nav-bar__li">
-        <a href="" class="nav-bar__link-text md-anchor">Create an account</a>
+        <a href="" class="nav-bar__link-text">Create an account</a>
       </li>
       <li class="nav-bar__li">
-        <a href="" class="nav-bar__link-text link-text-color md-anchor"
-          >Sign In</a
-        >
+        <router-link to="/login" class="nav-bar__link-text link-text-color">
+          Sign In
+        </router-link>
       </li>
     </ul>
   </div>
@@ -70,5 +70,35 @@ export default {};
     padding: 14px 16px;
     text-decoration: none;
   }
+}
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    &__ul {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    &__li {
+      margin-left: 0;
+    }
+
+    &__li {
+      margin-left: 0;
+    }
+
+    &__button {
+      display: block;
+    }
+  }
+}
+.link-text-color {
+  text-decoration: none;
+  color: #0070d3;
+  font-weight: bold;
 }
 </style>
