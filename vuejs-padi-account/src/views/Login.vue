@@ -11,7 +11,11 @@ export default {
       displayBlankEmailWarning: false,
     };
   },
-
+  computed: {
+    title() {
+      return this.validEmail ? "Welcome back." : "Sign In.";
+    },
+  },
   methods: {
     clickBack() {
       this.validEmail = false;
@@ -50,7 +54,7 @@ export default {
   <template v-if="!validEmail">
     <div class="main-container">
       <div class="login-container">
-        <h2 class="login-container__heading-2">Sign In.</h2>
+        <h2 class="login-container__heading-2">{{ title }}</h2>
         <div class="margin-10">
           <span>Don't have an account?</span>
           <a href="" class="link-text-color margin-left-10"
@@ -87,7 +91,7 @@ export default {
   <template v-else>
     <div class="main-container">
       <div class="login-container">
-        <h2 class="login-container__heading-2">Welcome back.</h2>
+        <h2 class="login-container__heading-2">{{ title }}</h2>
         <span class="margin-10">{{ inputEmail }}</span>
         <div>
           <input
