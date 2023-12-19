@@ -31,6 +31,7 @@ export default {
 </script>
 
 <template>
+  <Navbar />
   <!-- <Experimental0
     :msg="msg"
     testProps='<span style="color: red">This should be red.</span>'
@@ -39,7 +40,7 @@ export default {
   <!-- <Experimental2 /> -->
   <!-- <Experimental3 /> -->
   <!-- <Experimental4 /> -->
-  <div :style="{ fontSize: postFontSize + 'em' }">
+  <!-- <div :style="{ fontSize: postFontSize + 'em' }">
     <Experimental5
       v-for="post in posts"
       :key="post.id"
@@ -48,7 +49,7 @@ export default {
     >
       test slot</Experimental5
     >
-  </div>
+  </div> -->
   <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -60,7 +61,7 @@ export default {
 </template>
 
 <style scoped>
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -71,5 +72,5 @@ export default {
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
-}
+} */
 </style>
