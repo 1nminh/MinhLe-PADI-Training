@@ -1,4 +1,6 @@
 <script>
+import { get } from "lodash-es";
+
 export default {
   props: {},
 
@@ -64,6 +66,11 @@ export default {
   unmounted() {},
   mounted() {
     console.log(`Exp1 component`);
+
+    console.log(this.fullName);
+
+    this.fullName = "ABC DEF";
+    console.log(this.fullName);
 
     const parentMessage = "Parent";
     const items = [{ message: "Foo" }, { message: "Bar" }];
