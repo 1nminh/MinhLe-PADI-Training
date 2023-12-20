@@ -6,7 +6,7 @@ export default {
   data() {
     return {
       validEmail: false,
-      inputEmail: null,
+      inputEmail: "",
       displayWarningEmail: false,
       displayBlankEmailWarning: false,
     };

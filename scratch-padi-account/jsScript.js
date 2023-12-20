@@ -191,25 +191,28 @@ function counter(value) {
   }
 
   function getValue() {
-    console.log(count);
     return count;
   }
 
   return {
     increase,
     getValue,
+    count,
   };
 }
 
 const counter1 = counter(1);
 counter1.increase();
-counter1.getValue();
+counter1.increase();
+console.log(counter());
+console.log(counter1.getValue());
+console.log(counter1.count);
 
 const counter2 = counter(10);
 counter2.increase();
 counter2.increase();
 counter2.increase();
-counter2.getValue();
+console.log(counter2.getValue());
 
 //Closer test
 
