@@ -1,5 +1,6 @@
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+import { debounce } from "lodash";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -15,7 +16,7 @@ export default {
       inputEmail: null,
     };
   },
-  watch: {},
+  watch: { inputEmail: "handleEmailInputDebounced" },
   computed: {
     ...mapState({ myValue: (state) => state.myValue }),
     // ...mapState({ myValue: (state) => state.myValue }),
@@ -27,6 +28,7 @@ export default {
     // ...mapActions(["someAction"]),
     // ...mapMutations(["someMutation"]),
 
+    // async clickForward() {
     clickForward() {
       if (!this.inputEmail) {
         this.displayBlankEmailWarning = true;
@@ -41,8 +43,9 @@ export default {
         this.displayWarningEmail = true;
         this.displayBlankEmailWarning = false;
       }
+      // await this.$store.dispatch("validateEmail", this.inputEmail);
     },
-    handleEmailInput() {
+    handleEmailInputDebounced: debounce(function () {
       if (!this.inputEmail) {
         this.displayBlankEmailWarning = true;
         this.displayWarningEmail = false;
@@ -53,7 +56,7 @@ export default {
         this.displayWarningEmail = true;
         this.displayBlankEmailWarning = false;
       }
-    },
+    }, 500),
   },
 
   created() {
@@ -89,7 +92,7 @@ export default {
           :class="{
             'warning-border': displayWarningEmail || displayBlankEmailWarning,
           }"
-          @input="handleEmailInput"
+          @input="handleEmailInputDebounced"
         />
         <span v-if="displayWarningEmail" class="warning-text">
           Please enter a valid email
@@ -110,32 +113,3 @@ export default {
 </template>
 
 <style scoped></style>
-
-<!-- <template>
-  <div>
-    <p>Count: {{ count }}</p>
-    <button @click="increment">Increment</button>
-    <button @click="decrement">Decrement</button>
-  </div>
-</template>
-
-<script>
-import { mapState, mapMutations } from 'vuex';
-
-export default {
-  computed: {
-    ...mapState(['count']), // Map the count state to the component
-  },
-  methods: {
-    ...mapMutations(['increment', 'decrement']), // Map the mutations to methods
-  },
-};
-</script> -->
-
-<!-- import { mapState } from 'vuex';
-
-export default {
-  computed: {
-    ...mapState(['yourStateProperty']),
-  },
-}; -->

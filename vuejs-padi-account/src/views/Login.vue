@@ -14,34 +14,7 @@ export default {
   computed: {
     ...mapState({ validEmail: (state) => state.validEmail }),
   },
-  methods: {
-    // clickForward() {
-    //   if (!this.inputEmail) {
-    //     this.displayBlankEmailWarning = true;
-    //     this.displayWarningEmail = false;
-    //   } else if (emailRegex.test(this.inputEmail)) {
-    //     this.validEmail = true;
-    //     this.displayWarningEmail = false;
-    //     this.displayBlankEmailWarning = false;
-    //   } else {
-    //     this.validEmail = false;
-    //     this.displayWarningEmail = true;
-    //     this.displayBlankEmailWarning = false;
-    //   }
-    // },
-    // handleEmailInput() {
-    //   if (!this.inputEmail) {
-    //     this.displayBlankEmailWarning = true;
-    //     this.displayWarningEmail = false;
-    //   } else if (emailRegex.test(this.inputEmail)) {
-    //     this.displayWarningEmail = false;
-    //     this.displayBlankEmailWarning = false;
-    //   } else {
-    //     this.displayWarningEmail = true;
-    //     this.displayBlankEmailWarning = false;
-    //   }
-    // },
-  },
+  methods: {},
 };
 </script>
 
