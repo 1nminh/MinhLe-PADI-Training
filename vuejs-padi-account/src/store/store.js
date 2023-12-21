@@ -4,6 +4,8 @@ export default createStore({
   state: {
     // Your state properties go here
     count: 0,
+    inputEmail: null,
+    darkMode: false,
   },
   mutations: {
     // Mutations are responsible for changing the state
@@ -12,6 +14,17 @@ export default createStore({
     },
     decrement(state) {
       state.count--;
+    },
+    setMyValue(state, newValue) {
+      state.myValue = newValue;
+    },
+
+    setValidEmail(state, newValue) {
+      state.validEmail = newValue;
+    },
+
+    setInputEmail(state, newValue) {
+      state.inputEmail = newValue;
     },
   },
   actions: {

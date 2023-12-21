@@ -1,28 +1,75 @@
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default {
   name: "UsernameInputForm",
   props: {},
   emits: [],
 
   data() {
-    return {};
+    return {
+      displayWarningEmail: false,
+      displayBlankEmailWarning: false,
+      inputEmail: null,
+    };
   },
   watch: {},
-  computed: {},
+  computed: {
+    ...mapState({ myValue: (state) => state.myValue }),
+    // ...mapState({ myValue: (state) => state.myValue }),
+    // ...mapGetters(["someGetter"]),
 
-  methods: {},
+    // ...mapState({ inputEmail: (state) => state.inputEmail }),
+  },
+  methods: {
+    // ...mapActions(["someAction"]),
+    // ...mapMutations(["someMutation"]),
+
+    clickForward() {
+      if (!this.inputEmail) {
+        this.displayBlankEmailWarning = true;
+        this.displayWarningEmail = false;
+      } else if (emailRegex.test(this.inputEmail)) {
+        this.$store.commit("setValidEmail", true);
+        this.$store.commit("setInputEmail", this.inputEmail);
+        this.displayWarningEmail = false;
+        this.displayBlankEmailWarning = false;
+      } else {
+        this.$store.commit("setValidEmail", false);
+        this.displayWarningEmail = true;
+        this.displayBlankEmailWarning = false;
+      }
+    },
+    handleEmailInput() {
+      if (!this.inputEmail) {
+        this.displayBlankEmailWarning = true;
+        this.displayWarningEmail = false;
+      } else if (emailRegex.test(this.inputEmail)) {
+        this.displayWarningEmail = false;
+        this.displayBlankEmailWarning = false;
+      } else {
+        this.displayWarningEmail = true;
+        this.displayBlankEmailWarning = false;
+      }
+    },
+  },
 
   created() {
     const stateValue = this.$store.state.stateKey;
 
     // Dispatch action
-    this.$store.dispatch("actionName", payload);
+    // this.$store.dispatch("actionName", payload);
 
     // Commit mutation
-    this.$store.commit("mutationName", payload);
+    // this.$store.commit("mutationName", payload);
   },
   unmounted() {},
-  mounted() {},
+  mounted() {
+    this.$store.commit("setValidEmail", false);
+    this.$store.commit("setInputEmail", null);
+  },
 };
 </script>
 

@@ -1,4 +1,6 @@
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
 export default {
   name: "PasswordInputForm",
   props: {},
@@ -8,9 +10,19 @@ export default {
     return {};
   },
   watch: {},
-  computed: {},
+  computed: {
+    ...mapState({ myValue: (state) => state.myValue }),
+    ...mapState({ inputEmail: (state) => state.inputEmail }),
+    // ...mapGetters(["someGetter"]),
+  },
 
-  methods: {},
+  methods: {
+    // ...mapActions(["someAction"]),
+    // ...mapMutations(["someMutation"]),
+    clickBack() {
+      this.$store.commit("setValidEmail", false);
+    },
+  },
 
   created() {},
   unmounted() {},

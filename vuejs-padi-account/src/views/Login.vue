@@ -1,56 +1,46 @@
 <script>
 import UsernameInputForm from "@/components/UsernameInputForm.vue";
 import PasswordInputForm from "@/components/PasswordInputForm.vue";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default {
   name: "Login",
 
   components: { UsernameInputForm, PasswordInputForm },
 
   data() {
-    return {
-      validEmail: false,
-      inputEmail: "",
-      displayWarningEmail: false,
-      displayBlankEmailWarning: false,
-    };
+    return {};
   },
   computed: {
-    title() {
-      return this.validEmail ? "Welcome back." : "Sign In.";
-    },
+    ...mapState({ validEmail: (state) => state.validEmail }),
   },
   methods: {
-    clickBack() {
-      this.validEmail = false;
-    },
-    clickForward() {
-      if (!this.inputEmail) {
-        this.displayBlankEmailWarning = true;
-        this.displayWarningEmail = false;
-      } else if (emailRegex.test(this.inputEmail)) {
-        this.validEmail = true;
-        this.displayWarningEmail = false;
-        this.displayBlankEmailWarning = false;
-      } else {
-        this.validEmail = false;
-        this.displayWarningEmail = true;
-        this.displayBlankEmailWarning = false;
-      }
-    },
-    handleEmailInput() {
-      if (!this.inputEmail) {
-        this.displayBlankEmailWarning = true;
-        this.displayWarningEmail = false;
-      } else if (emailRegex.test(this.inputEmail)) {
-        this.displayWarningEmail = false;
-        this.displayBlankEmailWarning = false;
-      } else {
-        this.displayWarningEmail = true;
-        this.displayBlankEmailWarning = false;
-      }
-    },
+    // clickForward() {
+    //   if (!this.inputEmail) {
+    //     this.displayBlankEmailWarning = true;
+    //     this.displayWarningEmail = false;
+    //   } else if (emailRegex.test(this.inputEmail)) {
+    //     this.validEmail = true;
+    //     this.displayWarningEmail = false;
+    //     this.displayBlankEmailWarning = false;
+    //   } else {
+    //     this.validEmail = false;
+    //     this.displayWarningEmail = true;
+    //     this.displayBlankEmailWarning = false;
+    //   }
+    // },
+    // handleEmailInput() {
+    //   if (!this.inputEmail) {
+    //     this.displayBlankEmailWarning = true;
+    //     this.displayWarningEmail = false;
+    //   } else if (emailRegex.test(this.inputEmail)) {
+    //     this.displayWarningEmail = false;
+    //     this.displayBlankEmailWarning = false;
+    //   } else {
+    //     this.displayWarningEmail = true;
+    //     this.displayBlankEmailWarning = false;
+    //   }
+    // },
   },
 };
 </script>
