@@ -1,7 +1,12 @@
 <script>
+import UsernameInputForm from "@/components/UsernameInputForm.vue";
+import PasswordInputForm from "@/components/PasswordInputForm.vue";
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default {
   name: "Login",
+
+  components: { UsernameInputForm, PasswordInputForm },
 
   data() {
     return {
@@ -52,77 +57,14 @@ export default {
 
 <template>
   <template v-if="!validEmail">
-    <div class="main-container">
-      <div class="login-container">
-        <h2 class="login-container__heading-2">{{ title }}</h2>
-        <div class="margin-10">
-          <span>Don't have an account?</span>
-          <a href="" class="link-text-color margin-left-10"
-            >Create an account</a
-          >
-        </div>
-        <div>
-          <input
-            v-model="inputEmail"
-            placeholder="Email"
-            class="login-container__input-text margin-10"
-            :class="{
-              'warning-border': displayWarningEmail || displayBlankEmailWarning,
-            }"
-            @input="handleEmailInput"
-          />
-          <span v-if="displayWarningEmail" class="warning-text">
-            Please enter a valid email
-          </span>
-          <span v-if="displayBlankEmailWarning" class="warning-text">
-            Don't leave the email input blank
-          </span>
-          <input
-            type="button"
-            value="Next"
-            @click="clickForward"
-            class="login-container__input-button margin-10"
-          />
-          <a href="" class="link-text-color margin-10">Forgot your password?</a>
-        </div>
-      </div>
-    </div>
+    <UsernameInputForm />
   </template>
   <template v-else>
-    <div class="main-container">
-      <div class="login-container">
-        <h2 class="login-container__heading-2">{{ title }}</h2>
-        <span class="margin-10">{{ inputEmail }}</span>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            class="login-container__input-password margin-10"
-          />
-          <span class="pw-note">Password is case sensitive </span>
-          <input
-            type="button"
-            value="Sign In"
-            class="login-container__input-button margin-10"
-          />
-          <a href="" class="link-text-color margin-10">Forgot your password?</a>
-        </div>
-        <div>
-          <a href="#" class="form-back-button" @click="clickBack">
-            <p>
-              <span class="login-container__back-icon">
-                <img src="@/assets/login-back-icon.png" alt="" />
-              </span>
-              Go back
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
+    <PasswordInputForm />
   </template>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .main-container {
   display: flex;
   justify-content: center;

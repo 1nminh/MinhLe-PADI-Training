@@ -94,6 +94,12 @@ export default {
     &__button {
       display: block;
     }
+
+    &__img {
+      max-width: 30%;
+      height: auto;
+      // margin-right: 20px;
+    }
   }
 }
 .link-text-color {
