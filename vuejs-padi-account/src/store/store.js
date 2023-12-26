@@ -26,6 +26,9 @@ export default createStore({
     setInputEmail(state, newValue) {
       state.inputEmail = newValue;
     },
+    setDarkMode(state, newValue) {
+      state.darkMode = newValue;
+    },
   },
   actions: {
     // Actions can be used to perform asynchronous operations and then commit mutations

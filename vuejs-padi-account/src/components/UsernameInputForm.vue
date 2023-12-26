@@ -18,7 +18,10 @@ export default {
   },
   watch: { inputEmail: "handleEmailInputDebounced" },
   computed: {
-    ...mapState({ myValue: (state) => state.myValue }),
+    ...mapState({
+      myValue: (state) => state.myValue,
+      darkMode: (state) => state.darkMode,
+    }),
     // ...mapState({ myValue: (state) => state.myValue }),
     // ...mapGetters(["someGetter"]),
 
@@ -78,7 +81,7 @@ export default {
 
 <template>
   <div class="main-container">
-    <div class="login-container">
+    <div class="login-container" :class="{ 'dark-mode': darkMode }">
       <h2 class="login-container__heading-2">Sign In.</h2>
       <div class="margin-10">
         <span>Don't have an account?</span>

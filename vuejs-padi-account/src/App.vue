@@ -27,6 +27,9 @@ export default {
       postFontSize: 1,
     };
   },
+  created() {
+    this.$store.commit("setDarkMode", false);
+  },
 };
 </script>
 

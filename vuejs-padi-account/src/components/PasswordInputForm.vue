@@ -11,8 +11,12 @@ export default {
   },
   watch: {},
   computed: {
-    ...mapState({ myValue: (state) => state.myValue }),
-    ...mapState({ inputEmail: (state) => state.inputEmail }),
+    ...mapState({
+      myValue: (state) => state.myValue,
+      darkMode: (state) => state.darkMode,
+      inputEmail: (state) => state.inputEmail,
+    }),
+
     // ...mapGetters(["someGetter"]),
   },
 
@@ -32,7 +36,7 @@ export default {
 
 <template>
   <div class="main-container">
-    <div class="login-container">
+    <div class="login-container" :class="{ 'dark-mode': darkMode }">
       <h2 class="login-container__heading-2">Welcome back.</h2>
       <span class="margin-10">{{ inputEmail }}</span>
       <div>

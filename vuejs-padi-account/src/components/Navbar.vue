@@ -1,6 +1,11 @@
 <script>
 export default {
   name: "Navbar",
+  methods: {
+    toggleDarkMode() {
+      this.$store.commit("setDarkMode", !this.$store.state.darkMode);
+    },
+  },
 };
 </script>
 
@@ -13,7 +18,7 @@ export default {
       <li class="nav-bar__li">
         <button
           id="darkModeToggle"
-          onclick="toggleDarkMode()"
+          @click="toggleDarkMode"
           class="nav-bar__button"
         >
           Toggle Dark Mode
