@@ -37,6 +37,9 @@ export default createStore({
         commit("increment");
       }, 1000);
     },
+    toggleDarkMode({ commit, state }) {
+      commit("setDarkMode", !state.darkMode);
+    },
   },
   getters: {
     // Getters are used for computed state properties

@@ -97,6 +97,15 @@ export default {
           }"
           @input="handleEmailInputDebounced"
         />
+        <!-- <input
+          :value="searchText"
+          @input="searchText = $event.target.value"
+          placeholder="Email"
+          class="login-container__input-text margin-10"
+          :class="{
+            'warning-border': displayWarningEmail || displayBlankEmailWarning,
+          }"
+        /> -->
         <span v-if="displayWarningEmail" class="warning-text">
           Please enter a valid email
         </span>

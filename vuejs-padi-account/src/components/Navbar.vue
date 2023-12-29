@@ -3,7 +3,7 @@ export default {
   name: "Navbar",
   methods: {
     toggleDarkMode() {
-      this.$store.commit("setDarkMode", !this.$store.state.darkMode);
+      this.$store.dispatch("toggleDarkMode", true);
     },
   },
 };
