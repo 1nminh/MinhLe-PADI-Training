@@ -13,7 +13,7 @@ export default {
     return {
       displayWarningEmail: false,
       displayBlankEmailWarning: false,
-      inputEmail: null,
+      // inputEmail: null,
     };
   },
   watch: { inputEmail: "handleEmailInputDebounced" },
@@ -21,11 +21,20 @@ export default {
     ...mapState({
       myValue: (state) => state.myValue,
       darkMode: (state) => state.darkMode,
+      //use for 1 way binding v model
+      // inputEmail: (state) => state.inputEmail,
     }),
-    // ...mapState({ myValue: (state) => state.myValue }),
-    // ...mapGetters(["someGetter"]),
 
-    // ...mapState({ inputEmail: (state) => state.inputEmail }),
+    //use for 2 way binding
+    inputEmail: {
+      get() {
+        return this.$store.state.inputEmail;
+      },
+      set(value) {
+        this.updateStoreEmail(value);
+      },
+    },
+    // ...mapGetters(["someGetter"]),
   },
   methods: {
     // ...mapActions(["someAction"]),
@@ -60,6 +69,18 @@ export default {
         this.displayBlankEmailWarning = false;
       }
     }, 500),
+
+    //use for 2 way binding
+    updateStoreEmail(value) {
+      this.$store.commit("setInputEmail", value);
+      this.handleEmailInputDebounced();
+    },
+
+    //use for 1 way binding v model
+    // updateEmail(event) {
+    //   this.$store.commit("setInputEmail", event.target.value);
+    //   this.handleEmailInputDebounced();
+    // },
   },
 
   created() {
@@ -74,7 +95,7 @@ export default {
   unmounted() {},
   mounted() {
     this.$store.commit("setValidEmail", false);
-    this.$store.commit("setInputEmail", null);
+    // this.$store.commit("setInputEmail", null);
   },
 };
 </script>
@@ -97,9 +118,10 @@ export default {
           }"
           @input="handleEmailInputDebounced"
         />
+        <!-- use for 1 way binding v model -->
         <!-- <input
-          :value="searchText"
-          @input="searchText = $event.target.value"
+          :value="inputEmail"
+          @input="updateEmail"
           placeholder="Email"
           class="login-container__input-text margin-10"
           :class="{
