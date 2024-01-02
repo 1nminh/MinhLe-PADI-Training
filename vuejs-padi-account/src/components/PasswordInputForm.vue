@@ -3,18 +3,32 @@ import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   name: "PasswordInputForm",
-  props: {},
-  emits: [],
+  props: {
+    initialEmail: {
+      type: String,
+      default: "",
+    },
+  },
+
+  emits: ["inputEmail"],
 
   data() {
-    return {};
+    return {
+      inputEmail: this.initialEmail, // Initialize the inputEmail with the passed initialEmail prop
+      password: "",
+      errorMessage: "",
+    };
   },
-  watch: {},
+  watch: {
+    inputEmail(newEmail) {
+      this.$emit("update:inputEmail", newEmail); // Emit the updated email value
+    },
+  },
   computed: {
     ...mapState({
       myValue: (state) => state.myValue,
       darkMode: (state) => state.darkMode,
-      inputEmail: (state) => state.inputEmail,
+      // inputEmail: (state) => state.inputEmail,
     }),
 
     // ...mapGetters(["someGetter"]),
@@ -25,6 +39,15 @@ export default {
     // ...mapMutations(["someMutation"]),
     clickBack() {
       this.$store.commit("setValidEmail", false);
+      // this.$emit("inputEmail", this.inputEmail);
+    },
+    login() {
+      if (this.inputEmail == "a@a.c" && this.password == "a") {
+        // Redirect to dashboard (assuming you have a router instance available)
+        this.$router.push("/dashboard");
+      } else {
+        this.errorMessage = "Invalid credentials. Please try again.";
+      }
     },
   },
 
@@ -41,12 +64,17 @@ export default {
       <span class="margin-10">{{ inputEmail }}</span>
       <div>
         <input
+          v-model="password"
           type="password"
           placeholder="Password"
           class="login-container__input-password margin-10"
         />
         <span class="pw-note">Password is case sensitive </span>
+        <span v-if="errorMessage" class="error-message">{{
+          errorMessage
+        }}</span>
         <input
+          @click="login"
           type="button"
           value="Sign In"
           class="login-container__input-button margin-10"
@@ -67,4 +95,10 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.error-message {
+  display: inline-block;
+  padding-top: 5px;
+  color: red;
+}
+</style>

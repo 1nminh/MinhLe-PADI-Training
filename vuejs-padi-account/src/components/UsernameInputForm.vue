@@ -6,14 +6,21 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default {
   name: "UsernameInputForm",
-  props: {},
-  emits: [],
+
+  props: {
+    initialEmail: {
+      type: String,
+      default: "",
+    },
+  },
+
+  emits: ["inputEmail"],
 
   data() {
     return {
       displayWarningEmail: false,
       displayBlankEmailWarning: false,
-      // inputEmail: null,
+      inputEmail: this.initialEmail,
     };
   },
   watch: { inputEmail: "handleEmailInputDebounced" },
@@ -26,14 +33,14 @@ export default {
     }),
 
     //use for 2 way binding
-    inputEmail: {
-      get() {
-        return this.$store.state.inputEmail;
-      },
-      set(value) {
-        this.updateStoreEmail(value);
-      },
-    },
+    // inputEmail: {
+    //   get() {
+    //     return this.$store.state.inputEmail;
+    //   },
+    //   set(value) {
+    //     this.updateStoreEmail(value);
+    //   },
+    // },
     // ...mapGetters(["someGetter"]),
   },
   methods: {
@@ -47,7 +54,8 @@ export default {
         this.displayWarningEmail = false;
       } else if (emailRegex.test(this.inputEmail)) {
         this.$store.commit("setValidEmail", true);
-        this.$store.commit("setInputEmail", this.inputEmail);
+        this.$emit("inputEmail", this.inputEmail);
+        // this.$store.commit("setInputEmail", this.inputEmail);
         this.displayWarningEmail = false;
         this.displayBlankEmailWarning = false;
       } else {
@@ -71,10 +79,10 @@ export default {
     }, 500),
 
     //use for 2 way binding
-    updateStoreEmail(value) {
-      this.$store.commit("setInputEmail", value);
-      this.handleEmailInputDebounced();
-    },
+    // updateStoreEmail(value) {
+    //   this.$store.commit("setInputEmail", value);
+    //   this.handleEmailInputDebounced();
+    // },
 
     //use for 1 way binding v model
     // updateEmail(event) {

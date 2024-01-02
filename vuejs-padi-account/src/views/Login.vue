@@ -6,24 +6,42 @@ import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   name: "Login",
 
-  components: { UsernameInputForm, PasswordInputForm },
+  components: {
+    UsernameInputForm,
+    PasswordInputForm,
+  },
 
   data() {
-    return {};
+    return {
+      inputEmail: "", // Initialize with an empty value
+    };
   },
+
   computed: {
     ...mapState({ validEmail: (state) => state.validEmail }),
   },
-  methods: {},
+
+  methods: {
+    updateInputEmail(email) {
+      this.inputEmail = email; // Update the inputEmail state
+    },
+  },
 };
 </script>
 
 <template>
+  <!-- <h1>{{ inputEmail }}</h1> -->
   <template v-if="!validEmail">
-    <UsernameInputForm />
+    <UsernameInputForm
+      :initialEmail="inputEmail"
+      @inputEmail="updateInputEmail"
+    />
   </template>
   <template v-else>
-    <PasswordInputForm />
+    <PasswordInputForm
+      :initialEmail="inputEmail"
+      @update:inputEmail="updateInputEmail"
+    />
   </template>
 </template>
 
