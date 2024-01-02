@@ -1,11 +1,13 @@
 import { createStore } from "vuex";
+import { fetchUsers } from "@/api/api.js";
 
 export default createStore({
   state: {
-    // Your state properties go here
     count: 0,
     inputEmail: null,
     darkMode: false,
+    users: [],
+    error: null,
   },
   mutations: {
     // Mutations are responsible for changing the state
@@ -29,6 +31,12 @@ export default createStore({
     setDarkMode(state, newValue) {
       state.darkMode = newValue;
     },
+    setUsers(state, users) {
+      state.users = users;
+    },
+    setError(state, error) {
+      state.error = error;
+    },
   },
   actions: {
     // Actions can be used to perform asynchronous operations and then commit mutations
@@ -40,12 +48,23 @@ export default createStore({
     toggleDarkMode({ commit, state }) {
       commit("setDarkMode", !state.darkMode);
     },
+    async fetchAndSetUsers({ commit }) {
+      try {
+        const users = await fetchUsers();
+        commit("setUsers", users);
+      } catch (error) {
+        commit("setError", "Error fetching users");
+        console.error(error);
+      }
+    },
   },
   getters: {
     // Getters are used for computed state properties
     getCount: (state) => {
       return state.count;
     },
+    getUsers: (state) => state.users,
+    getError: (state) => state.error,
   },
   modules: {
     // your modules here
