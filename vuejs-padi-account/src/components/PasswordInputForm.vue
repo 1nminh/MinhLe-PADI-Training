@@ -71,7 +71,7 @@ export default {
         />
         <span class="pw-note">Password is case sensitive </span>
         <span v-if="errorMessage" class="error-message">{{
-          errorMessage
+          errorMessage d
         }}</span>
         <input
           @click="login"
@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 .error-message {
-  display: inline-block;
+  /* display: inline-block; */
   padding-top: 5px;
   color: red;
 }
