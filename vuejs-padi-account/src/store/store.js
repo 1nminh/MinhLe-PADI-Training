@@ -83,15 +83,21 @@ export default createStore({
     },
   },
   getters: {
-    // Getters are used for computed state properties
     getCount: (state) => {
       return state.count;
     },
+    /**
+     * Retrieves a copy of the users from the state and sets the existTime property to 3 for each user.
+     *
+     * @param {object} state - The state object containing the users.
+     * @return {array} An array of user objects with the existTime property set to 3.
+     */
     getUsers: (state) => {
-      let users = state.users;
+      let users = state.users.map((user) => ({ ...user }));
       users.forEach((user) => {
         user.existTime = 3;
       });
+
       return users;
     },
     getError: (state) => state.error,
