@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 .error-message {
-  /* display: inline-block; */
+  display: inline-block;
   padding-top: 5px;
   color: red;
 }
