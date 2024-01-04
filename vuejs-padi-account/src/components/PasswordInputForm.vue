@@ -69,10 +69,8 @@ export default {
           placeholder="Password"
           class="login-container__input-password margin-10"
         />
-        <span class="pw-note">Password is case sensitive </span>
-        <span v-if="errorMessage" class="error-message">{{
-          errorMessage d
-        }}</span>
+        <p class="pw-note">Password is case sensitive</p>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <input
           @click="login"
           type="button"

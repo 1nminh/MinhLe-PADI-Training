@@ -39,6 +39,7 @@ export default {
 <style scoped lang="scss">
 .nav-bar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   background-color: white;
   overflow: hidden;
@@ -47,13 +48,17 @@ export default {
   &__ul {
     list-style-type: none;
     display: flex;
+    gap: 30px;
+    justify-content: space-around;
+    width: 900px;
     margin: 0;
-    padding: 0;
-    justify-content: center;
+    padding: 10px;
+    justify-content: end;
     align-items: center;
   }
 
   &__li {
+    min-width: 100px;
     margin-left: 10px;
   }
 
@@ -72,7 +77,7 @@ export default {
 
   &__link-text {
     color: black;
-    padding: 14px 16px;
+    // padding: 14px 16px;
     text-decoration: none;
   }
 }
@@ -86,10 +91,6 @@ export default {
       flex-direction: column;
       text-align: center;
       gap: 10px;
-    }
-
-    &__li {
-      margin-left: 0;
     }
 
     &__li {

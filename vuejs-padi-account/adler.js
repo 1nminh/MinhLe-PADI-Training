@@ -26,15 +26,35 @@
 //   console.log(target);
 // }
 
-var a = [];
+// var a = [];
 
-var b = null;
+// var b = null;
 
-if (a === b) {
-  console.log("1");
-} else {
-  console.log("2");
-}
+// if (a === b) {
+//   console.log("1");
+// } else {
+//   console.log("2");
+// }
 
 // console.log(typeof c);
 // console.log(c);
+
+/**
+ * A function that takes an input and returns a modified version of it.
+ *
+ * @param {number} input - The input value to be processed.
+ * @return {string} The modified version of the input value.
+ */
+function a(input) {
+  const result = input;
+
+  console.log(result[1]);
+  if (typeof input === "string") {
+    console.log("Inside");
+    let output = input.toString();
+
+    return output;
+  }
+}
+
+// Do not edit below this line
