@@ -25,11 +25,11 @@ export default {
         </button>
       </li>
       <li class="nav-bar__li">
-        <a href="" class="nav-bar__link-text">Create an account</a>
+        <a href="#" class="nav-bar__link-text">{{ $t("create_an_account") }}</a>
       </li>
       <li class="nav-bar__li">
         <router-link to="/login" class="nav-bar__link-text link-text-color">
-          Sign In
+          {{ $t("sign_in") }}
         </router-link>
       </li>
     </ul>

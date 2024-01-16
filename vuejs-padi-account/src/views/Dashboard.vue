@@ -62,16 +62,16 @@ export default {
 </script>
 <template>
   <div class="container">
-    <h2>User List</h2>
+    <h2>{{ $t("user_list") }}</h2>
     <p v-if="isLoading">loading</p>
     <ul v-else class="responsive-table">
       <li class="table-header">
-        <div class="col col-1">Id</div>
-        <div class="col col-2">Avatar</div>
-        <div class="col col-3">Name</div>
-        <div class="col col-4">Country</div>
-        <div class="col col-5">Create date</div>
-        <div class="col col-6">Action</div>
+        <div class="col col-1">{{ $t("id") }}</div>
+        <div class="col col-2">{{ $t("avatar") }}</div>
+        <div class="col col-3">{{ $t("name") }}</div>
+        <div class="col col-4">{{ $t("country") }}</div>
+        <div class="col col-5">{{ $t("create_date") }}</div>
+        <div class="col col-6">{{ $t("action") }}</div>
       </li>
       <li v-if="isAddingNew" class="table-row">
         <div class="col col-1">{{ getUsers.length + 1 }}</div>
@@ -100,16 +100,20 @@ export default {
         <div class="col col-4">{{ user.country }}</div>
         <div class="col col-5">{{ user.createdAt }}</div>
         <div class="col col-6">
-          <button type="button" @click="addNewUser()">Add new</button>
-          <button type="button" class="">Edit</button>
+          <button type="button" @click="addNewUser()">
+            {{ $t("add_new") }}
+          </button>
+          <button type="button" class="">
+            {{ $t("edit") }}
+          </button>
           <button type="button" @click="handleDeleteUser(user.id)">
-            Delete
+            {{ $t("delete") }}
           </button>
         </div>
       </li>
     </ul>
   </div>
-  <p v-if="getError">{{ getError }}</p>
+  <!-- <p v-if="getError">{{ getError }}</p> -->
 </template>
 <style lang="scss" scoped>
 body {

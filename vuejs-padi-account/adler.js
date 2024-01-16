@@ -45,16 +45,16 @@
  * @param {number} input - The input value to be processed.
  * @return {string} The modified version of the input value.
  */
-function a(input) {
-  const result = input;
+// function a(input) {
+//   const result = input;
 
-  console.log(result[1]);
-  if (typeof input === "string") {
-    console.log("Inside");
-    let output = input.toString();
+//   console.log(result[1]);
+//   if (typeof input === "string") {
+//     console.log("Inside");
+//     let output = input.toString();
 
-    return output;
-  }
-}
+//     return output;
+//   }
+// }
 
 // Do not edit below this line
