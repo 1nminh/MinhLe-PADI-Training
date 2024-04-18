@@ -30,7 +30,6 @@ export default {
 </script>
 
 <template>
-  <!-- <h1>{{ inputEmail }}</h1> -->
   <template v-if="!validEmail">
     <UsernameInputForm
       :initialEmail="inputEmail"
@@ -57,6 +56,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   max-width: 500px;
+  min-width: 500px;
   max-height: 500px;
   border: 1px solid #ccc;
   border-radius: 5px;

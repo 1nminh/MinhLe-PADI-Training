@@ -43,10 +43,13 @@ export default {
     },
     login() {
       if (this.inputEmail == "a@a.c" && this.password == "a") {
-        // Redirect to dashboard (assuming you have a router instance available)
-        this.$router.push("/dashboard");
+        const currentLanguage = this.$route.params.lang || "en-US";
+        this.$router.push({
+          name: "Dashboard",
+          // params: { lang: currentLanguage },
+        });
       } else {
-        this.errorMessage = "Invalid credentials. Please try again.";
+        this.errorMessage = this.$t("invalid_credentials");
       }
     },
   },
@@ -60,26 +63,26 @@ export default {
 <template>
   <div class="main-container">
     <div class="login-container" :class="{ 'dark-mode': darkMode }">
-      <h2 class="login-container__heading-2">Welcome back.</h2>
+      <h2 class="login-container__heading-2">{{ $t("welcome_back") }}.</h2>
       <span class="margin-10">{{ inputEmail }}</span>
       <div>
         <input
           v-model="password"
           type="password"
-          placeholder="Password"
+          :placeholder="$t('password')"
           class="login-container__input-password margin-10"
         />
-        <span class="pw-note">Password is case sensitive </span>
-        <span v-if="errorMessage" class="error-message">{{
-          errorMessage
-        }}</span>
+        <p class="pw-note">{{ $t("password_case_sensitive") }}</p>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <input
           @click="login"
           type="button"
-          value="Sign In"
+          :value="$t('sign_in')"
           class="login-container__input-button margin-10"
         />
-        <a href="" class="link-text-color margin-10">Forgot your password?</a>
+        <a href="" class="link-text-color margin-10">
+          {{ $t("forgot_your_password") }}
+        </a>
       </div>
       <div>
         <a href="#" class="form-back-button" @click="clickBack">
@@ -87,7 +90,7 @@ export default {
             <span class="login-container__back-icon">
               <img src="@/assets/login-back-icon.png" alt="" />
             </span>
-            Go back
+            {{ $t("go_back") }}
           </p>
         </a>
       </div>

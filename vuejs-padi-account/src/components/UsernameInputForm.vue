@@ -111,15 +111,17 @@ export default {
 <template>
   <div class="main-container">
     <div class="login-container" :class="{ 'dark-mode': darkMode }">
-      <h2 class="login-container__heading-2">Sign In.</h2>
+      <h2 class="login-container__heading-2">{{ $t("sign_in") }}.</h2>
       <div class="margin-10">
-        <span>Don't have an account?</span>
-        <a href="" class="link-text-color margin-left-10">Create an account</a>
+        <span>{{ $t("dont_have_an_account") }}</span>
+        <a href="" class="link-text-color margin-left-10">{{
+          $t("create_an_account")
+        }}</a>
       </div>
       <div>
         <input
           v-model="inputEmail"
-          placeholder="Email"
+          :placeholder="$t('email')"
           class="login-container__input-text margin-10"
           :class="{
             'warning-border': displayWarningEmail || displayBlankEmailWarning,
@@ -137,18 +139,20 @@ export default {
           }"
         /> -->
         <span v-if="displayWarningEmail" class="warning-text">
-          Please enter a valid email
+          {{ $t("enter_valid_email") }}
         </span>
         <span v-if="displayBlankEmailWarning" class="warning-text">
-          Don't leave the email input blank
+          {{ $t("email_blank_error") }}
         </span>
         <input
           type="button"
-          value="Next"
+          :value="$t('next')"
           @click="clickForward"
           class="login-container__input-button margin-10"
         />
-        <a href="" class="link-text-color margin-10">Forgot your password?</a>
+        <a href="" class="link-text-color margin-10">
+          {{ $t("forgot_your_password") }}
+        </a>
       </div>
     </div>
   </div>

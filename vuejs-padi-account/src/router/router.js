@@ -5,8 +5,8 @@ import Dashboard from "@/views/Dashboard.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
-  { path: "/login", name: "Login", component: Login },
-  { path: "/dashboard", name: "Dashboard", component: Dashboard },
+  { path: "/login/:lang?", name: "Login", component: Login },
+  { path: "/dashboard/:lang?", name: "Dashboard", component: Dashboard },
 ];
 
 const router = createRouter({

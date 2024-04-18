@@ -6,11 +6,12 @@ export default {
   data() {
     return {
       isLoading: true,
+      isAddingNew: false,
       newUser: {
-        name: "test name",
+        name: "",
         avatar:
           "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1223.jpg",
-        country: "Lebanon",
+        country: "",
       },
     };
   },
@@ -25,11 +26,32 @@ export default {
       }
     },
     async addNewUser() {
+      this.scrollToTop();
+      this.isAddingNew = true;
+    },
+    async saveNewUser() {
       try {
         await this.$store.dispatch("createUser", this.newUser);
+        this.isAddingNew = false;
+        this.newUser = {
+          name: "",
+          avatar:
+            "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1223.jpg",
+          country: "",
+        };
+        this.scrollToBottom();
       } catch (error) {
         console.error("Error adding new user:", error);
       }
+    },
+    cancelAddNewUser() {
+      this.isAddingNew = false;
+    },
+    scrollToBottom() {
+      window.scrollTo(0, document.body.scrollHeight);
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
     },
   },
   async mounted() {
@@ -40,16 +62,34 @@ export default {
 </script>
 <template>
   <div class="container">
-    <h2>User List</h2>
+    <h2>{{ $t("user_list") }}</h2>
     <p v-if="isLoading">loading</p>
     <ul v-else class="responsive-table">
       <li class="table-header">
-        <div class="col col-1">Id</div>
-        <div class="col col-2">Avatar</div>
-        <div class="col col-3">Name</div>
-        <div class="col col-4">Country</div>
-        <div class="col col-5">Create date</div>
-        <div class="col col-6">Action</div>
+        <div class="col col-1">{{ $t("id") }}</div>
+        <div class="col col-2">{{ $t("avatar") }}</div>
+        <div class="col col-3">{{ $t("name") }}</div>
+        <div class="col col-4">{{ $t("country") }}</div>
+        <div class="col col-5">{{ $t("create_date") }}</div>
+        <div class="col col-6">{{ $t("action") }}</div>
+      </li>
+      <li v-if="isAddingNew" class="table-row">
+        <div class="col col-1">{{ getUsers.length + 1 }}</div>
+        <div class="col col-2">
+          <img :src="this.newUser.avatar" alt="User Avatar" class="avatar" />
+          <!-- <input v-model="newUser.avatar" placeholder="Avatar URL" /> -->
+        </div>
+        <div class="col col-3">
+          <input v-model="newUser.name" placeholder="Name" />
+        </div>
+        <div class="col col-4">
+          <input v-model="newUser.country" placeholder="Country" />
+        </div>
+        <div class="col col-5"></div>
+        <div class="col col-6">
+          <button type="button" @click="saveNewUser()">Save</button>
+          <button type="button" @click="cancelAddNewUser()">Cancel</button>
+        </div>
       </li>
       <li v-for="user in getUsers" :key="user.id" class="table-row">
         <div class="col col-1">{{ user.id }}</div>
@@ -60,16 +100,20 @@ export default {
         <div class="col col-4">{{ user.country }}</div>
         <div class="col col-5">{{ user.createdAt }}</div>
         <div class="col col-6">
-          <button type="button" @click="addNewUser()">Add new</button>
-          <button type="button" class="">Edit</button>
+          <button type="button" @click="addNewUser()">
+            {{ $t("add_new") }}
+          </button>
+          <button type="button" class="">
+            {{ $t("edit") }}
+          </button>
           <button type="button" @click="handleDeleteUser(user.id)">
-            Delete
+            {{ $t("delete") }}
           </button>
         </div>
       </li>
     </ul>
   </div>
-  <p v-if="getError">{{ getError }}</p>
+  <!-- <p v-if="getError">{{ getError }}</p> -->
 </template>
 <style lang="scss" scoped>
 body {
